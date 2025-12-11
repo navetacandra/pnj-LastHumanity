@@ -6,7 +6,8 @@ func _ready() -> void:
 	$MainChar.rotation_degrees = 180
 	$MainChar.speed = 50
 	$MainChar.rotation_speed = 1.5
-	$MainChar._debug_coordinate = true
+	#$MainChar._debug_coordinate = true
+	$MainChar/MainCam.base_zoom = 90
 	pass # Replace with function body.
 
 

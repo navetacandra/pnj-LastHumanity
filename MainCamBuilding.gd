@@ -1,7 +1,7 @@
 extends Camera2D
 
 var _prev_viewport_size: Vector2 = Vector2.ZERO
-@export var base_zoom: float = 270.0
+@export var base_zoom: float = 202.50
 
 func _ready() -> void:
 	_prev_viewport_size = get_viewport().size

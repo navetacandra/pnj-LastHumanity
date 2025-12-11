@@ -1,4 +1,4 @@
-[gd_scene load_steps=212 format=4 uid="uid://dsdr2qb4n1pwg"]
+[gd_scene load_steps=205 format=4 uid="uid://dsdr2qb4n1pwg"]
 
 [ext_resource type="Texture2D" uid="uid://eaf1n5c4lrf8" path="res://Assets/Terrain.png" id="1_glv2v"]
 [ext_resource type="Texture2D" uid="uid://ddkn7vib4hpli" path="res://Assets/Road.png" id="2_r0du0"]
@@ -17,11 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://b7at2ke5sq2x0" path="res://Item/Sword.png" id="9_c6i3y"]
 [ext_resource type="Texture2D" uid="uid://h7vhjak6nesp" path="res://Char/Pedang.png" id="9_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://duav27rqvcrgj" path="res://Assets/Broken Cars and Tires/Zombie-Tileset---_0181_Capa-182.png" id="9_xrxkg"]
-[ext_resource type="Script" uid="uid://cb37wo85demra" path="res://antidote.gd" id="10_j4qnp"]
 [ext_resource type="Texture2D" uid="uid://ce2abjnf1851o" path="res://Assets/Broken Cars and Tires/Zombie-Tileset---_0184_Capa-185.png" id="10_sqvbp"]
 [ext_resource type="Script" uid="uid://kr1aluq78crg" path="res://MainCam.gd" id="11_20pc6"]
 [ext_resource type="Texture2D" uid="uid://cmgnoc1dil352" path="res://Assets/Broken Cars and Tires/Zombie-Tileset---_0185_Capa-186.png" id="11_hri7i"]
-[ext_resource type="Texture2D" uid="uid://dutqukj13pij3" path="res://Item/Antidote.png" id="11_j4qnp"]
 [ext_resource type="Script" uid="uid://o8s3hbfcvpgn" path="res://enter_building_trigger.gd" id="15_bg4s2"]
 [ext_resource type="Texture2D" uid="uid://jmiyd4vrkfbu" path="res://Char/ZombieCatEating.png" id="24_hhcpw"]
 [ext_resource type="Script" uid="uid://34tk3la1m8q" path="res://meong.gd" id="24_mxvw5"]
@@ -436,47 +434,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mxvw5"]
-atlas = ExtResource("11_j4qnp")
-region = Rect2(1024, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3b0ty"]
-atlas = ExtResource("11_j4qnp")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bg4s2"]
-atlas = ExtResource("11_j4qnp")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhcpw"]
-atlas = ExtResource("11_j4qnp")
-region = Rect2(512, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hhcpw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mxvw5")
-}],
-"loop": true,
-"name": &"collected",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3b0ty")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bg4s2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhcpw")
-}],
-"loop": true,
-"name": &"default",
-"speed": 4.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkp8b"]
@@ -1684,22 +1641,6 @@ position = Vector2(352, 51.000027)
 scale = Vector2(0.06, 0.06)
 sprite_frames = SubResource("SpriteFrames_hri7i")
 
-[node name="Antidote" type="Node2D" parent="."]
-script = ExtResource("10_j4qnp")
-
-[node name="Area2D" type="Area2D" parent="Antidote"]
-position = Vector2(-95, -117)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Antidote/Area2D"]
-position = Vector2(179, 156)
-shape = SubResource("CircleShape2D_c6i3y")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Antidote"]
-position = Vector2(84.00003, 39.000027)
-scale = Vector2(0.1, 0.1)
-sprite_frames = SubResource("SpriteFrames_hhcpw")
-animation = &"collected"
-
 [node name="MainChar" type="CharacterBody2D" parent="."]
 position = Vector2(295, 214)
 script = ExtResource("8_trn2v")
@@ -1756,6 +1697,5 @@ shape = SubResource("RectangleShape2D_xrxkg")
 
 [connection signal="body_entered" from="Building/Area2D" to="Building" method="_on_stand_front_door"]
 [connection signal="body_entered" from="Sword/Area2D" to="Sword" method="_on_area_entered"]
-[connection signal="body_entered" from="Antidote/Area2D" to="Antidote" method="_on_area_entered"]
 [connection signal="body_entered" from="MainChar/Area2D" to="MainChar" method="_zombie_enter_area"]
 [connection signal="body_exited" from="MainChar/Area2D" to="MainChar" method="_zombie_exit_area"]

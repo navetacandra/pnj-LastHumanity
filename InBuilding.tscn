@@ -1,9 +1,126 @@
-[gd_scene load_steps=20 format=3 uid="uid://b62fbtx7iwrm0"]
+[gd_scene load_steps=33 format=4 uid="uid://b62fbtx7iwrm0"]
 
+[ext_resource type="Texture2D" uid="uid://bcldql5bk4rby" path="res://Assets/SandstoneDungeons16.png" id="1_6l2rx"]
 [ext_resource type="Script" uid="uid://byseetsmnnsaf" path="res://MainChar.gd" id="1_tgqrr"]
+[ext_resource type="Script" uid="uid://clg57rylrjvv6" path="res://in_building.gd" id="1_txgl0"]
 [ext_resource type="Texture2D" uid="uid://h7vhjak6nesp" path="res://Char/Pedang.png" id="2_6l2rx"]
+[ext_resource type="Script" uid="uid://dciyb8gb5s4yv" path="res://building_exit_door.gd" id="2_857ny"]
+[ext_resource type="Script" uid="uid://cb37wo85demra" path="res://antidote.gd" id="3_68ys6"]
 [ext_resource type="Texture2D" uid="uid://cmklcn4e1wntv" path="res://Char/Tangan Kosong.png" id="3_857ny"]
-[ext_resource type="Script" uid="uid://kr1aluq78crg" path="res://MainCam.gd" id="4_44ah8"]
+[ext_resource type="Texture2D" uid="uid://dutqukj13pij3" path="res://Item/Antidote.png" id="4_txgl0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_857ny"]
+texture = ExtResource("1_6l2rx")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+3:2/0 = 0
+6:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+3:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+8:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_44ah8"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_857ny")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44ah8"]
+size = Vector2(16, 31.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ut43h"]
+radius = 14.035668
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxvw5"]
+atlas = ExtResource("4_txgl0")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b0ty"]
+atlas = ExtResource("4_txgl0")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg4s2"]
+atlas = ExtResource("4_txgl0")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhcpw"]
+atlas = ExtResource("4_txgl0")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3463h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxvw5")
+}],
+"loop": true,
+"name": &"collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b0ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg4s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhcpw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkp8b"]
 atlas = ExtResource("2_6l2rx")
@@ -131,26 +248,64 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txgl0"]
 
-[node name="Node2D" type="Node2D"]
+[node name="InBuilding" type="Node2D"]
+script = ExtResource("1_txgl0")
+
+[node name="Base" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAOAAkAAQAAAAEAAAAOAAoAAQAAAAEAAAAOAAsAAQAAAAEAAAAOAAwAAQAAAAEAAAAPAAkAAQAAAAEAAAAPAAoAAQAAAAEAAAAPAAsAAQAAAAEAAAAPAAwAAQAAAAEAAAAQAAkAAQAAAAEAAAAQAAoAAQAAAAEAAAAQAAsAAQAAAAEAAAAQAAwAAQAAAAEAAAARAAkAAQAAAAEAAAARAAoAAQAAAAEAAAARAAsAAQAAAAEAAAARAAwAAQAAAAEAAAASAAkAAQAAAAEAAAASAAoAAQAAAAEAAAASAAsAAQAAAAEAAAASAAwAAQAAAAEAAAATAAkAAQAAAAEAAAATAAoAAQAAAAEAAAATAAsAAQAAAAEAAAATAAwAAQAAAAEAAAANAAgAAQAAAAEAAAANAAkAAQAAAAEAAAANAAoAAQAAAAEAAAANAAsAAQAAAAEAAAANAAwAAQAAAAEAAAAOAAgAAQAAAAEAAAAPAAgAAQAAAAEAAAAQAAgAAQAAAAEAAAARAAgAAQAAAAEAAAASAAgAAQAAAAEAAAATAAgAAQAAAAEAAAAUAAgAAQAAAAEAAAAUAAkAAQAAAAEAAAAUAAoAAQAAAAEAAAAUAAsAAQAAAAEAAAAUAAwAAQAAAAEAAAAVAAgAAQAAAAEAAAAVAAkAAQAAAAEAAAAVAAoAAQAAAAEAAAAVAAsAAQAAAAEAAAAVAAwAAQAAAAEAAAAWAAgAAQAAAAEAAAAWAAkAAQAAAAEAAAAWAAoAAQAAAAEAAAAWAAsAAQAAAAEAAAAWAAwAAQAAAAEAAAAXAAgAAQAAAAEAAAAXAAkAAQAAAAEAAAAXAAoAAQAAAAEAAAAXAAsAAQAAAAEAAAAXAAwAAQAAAAEAAAANAAcAAQAAAAEAAAAOAAcAAQAAAAEAAAAPAAcAAQAAAAEAAAAQAAcAAQAAAAEAAAARAAcAAQAAAAEAAAASAAcAAQAAAAEAAAATAAcAAQAAAAEAAAAUAAcAAQAAAAEAAAAVAAcAAQAAAAEAAAAWAAcAAQAAAAEAAAAXAAcAAQAAAAEAAAANAA0AAQAAAAEAAAAOAA0AAQAAAAEAAAAPAA0AAQAAAAEAAAAQAA0AAQAAAAEAAAARAA0AAQAAAAEAAAASAA0AAQAAAAEAAAATAA0AAQAAAAEAAAAUAA0AAQAAAAEAAAAVAA0AAQAAAAEAAAAWAA0AAQAAAAEAAAAXAA0AAQAAAAEAAAANAAMAAQAAAAEAAAANAAQAAQAAAAEAAAANAAUAAQAAAAEAAAANAAYAAQAAAAEAAAAOAAMAAQAAAAEAAAAOAAQAAQAAAAEAAAAOAAUAAQAAAAEAAAAOAAYAAQAAAAEAAAAPAAMAAQAAAAEAAAAPAAQAAQAAAAEAAAAPAAUAAQAAAAEAAAAPAAYAAQAAAAEAAAAQAAMAAQAAAAEAAAAQAAQAAQAAAAEAAAAQAAUAAQAAAAEAAAAQAAYAAQAAAAEAAAARAAMAAQAAAAEAAAARAAQAAQAAAAEAAAARAAUAAQAAAAEAAAARAAYAAQAAAAEAAAASAAMAAQAAAAEAAAASAAQAAQAAAAEAAAASAAUAAQAAAAEAAAASAAYAAQAAAAEAAAATAAMAAQAAAAEAAAATAAQAAQAAAAEAAAATAAUAAQAAAAEAAAATAAYAAQAAAAEAAAAUAAMAAQAAAAEAAAAUAAQAAQAAAAEAAAAUAAUAAQAAAAEAAAAUAAYAAQAAAAEAAAAVAAMAAQAAAAEAAAAVAAQAAQAAAAEAAAAVAAUAAQAAAAEAAAAVAAYAAQAAAAEAAAAWAAMAAQAAAAEAAAAWAAQAAQAAAAEAAAAWAAUAAQAAAAEAAAAWAAYAAQAAAAEAAAAXAAMAAQAAAAEAAAAXAAQAAQAAAAEAAAAXAAUAAQAAAAEAAAAXAAYAAQAAAAEAAAA=")
+tile_set = SubResource("TileSet_44ah8")
+collision_enabled = false
+
+[node name="Building" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAANAA0AAQABAAIAAAAOAA0AAQABAAIAAAAPAA0AAQABAAIAAAAQAA0AAQABAAIAAAARAA0AAQABAAIAAAASAA0AAQADAAQAAAATAA0AAQABAAIAAAANAAgAAQACAAIAAAANAAkAAQACAAIAAAANAAoAAQACAAIAAAANAAsAAQACAAIAAAANAAwAAQACAAIAAAAUAA0AAQABAAIAAAAVAA0AAQABAAIAAAAXAAgAAQAAAAIAAAAXAAkAAQAAAAIAAAAXAAoAAQAAAAIAAAAXAAsAAQAAAAIAAAAXAAwAAQAAAAIAAAAXAA0AAQABAAIAAAAWAA0AAQABAAIAAAANAAMAAQACAAMAAAAOAAMAAQABAAIAAAAPAAMAAQABAAIAAAAQAAMAAQABAAIAAAARAAMAAQABAAIAAAASAAMAAQABAAIAAAATAAMAAQABAAIAAAAUAAMAAQABAAIAAAAVAAMAAQABAAIAAAAWAAMAAQABAAIAAAAXAAMAAQAAAAMAAAANAAcAAQACAAIAAAAXAAcAAQAAAAIAAAANAAYAAQACAAIAAAAXAAYAAQAAAAIAAAANAAUAAQACAAIAAAAXAAUAAQAAAAIAAAANAAQAAQACAAIAAAAXAAQAAQAAAAIAAAA=")
+tile_set = SubResource("TileSet_44ah8")
+script = ExtResource("2_857ny")
+
+[node name="Area2D" type="Area2D" parent="Building"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building/Area2D"]
+position = Vector2(296, 225)
+shape = SubResource("RectangleShape2D_44ah8")
+
+[node name="Antidote" type="Node2D" parent="."]
+script = ExtResource("3_68ys6")
+
+[node name="Area2D" type="Area2D" parent="Antidote"]
+position = Vector2(117, -80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Antidote/Area2D"]
+position = Vector2(179, 156)
+shape = SubResource("CircleShape2D_ut43h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Antidote"]
+position = Vector2(296, 76.00002)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_3463h")
+animation = &"collected"
 
 [node name="MainChar" type="CharacterBody2D" parent="."]
-position = Vector2(295, 214)
+position = Vector2(296, 183)
 script = ExtResource("1_tgqrr")
 
 [node name="CharSprite" type="AnimatedSprite2D" parent="MainChar"]
+position = Vector2(0.23999023, 0.23999786)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_68ys6")
 animation = &"punch_tk"
 
 [node name="CharCollision" type="CollisionShape2D" parent="MainChar"]
+position = Vector2(0.23999023, 0.23999786)
 scale = Vector2(0.45, 0.45)
 shape = SubResource("RectangleShape2D_txgl0")
 
 [node name="MainCam" type="Camera2D" parent="MainChar"]
+position = Vector2(0.23999023, 0.23999786)
 zoom = Vector2(2.5, 2.5)
-limit_left = -358
-limit_top = -102
-limit_right = 960
-limit_bottom = 639
+limit_left = 208
+limit_top = 48
+limit_right = 384
+limit_bottom = 225
 position_smoothing_enabled = true
-script = ExtResource("4_44ah8")
+
+[connection signal="body_entered" from="Building/Area2D" to="Building" method="_on_stand_front_door"]
+[connection signal="body_entered" from="Antidote/Area2D" to="Antidote" method="_on_area_entered"]
